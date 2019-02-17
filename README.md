@@ -5,7 +5,18 @@ Quick and easy infinite scrolling in WordPress. This library uses [enter-view.js
 [Documentation](https://marksteve.com/wp-infinite-scroll) -
 [License](LICENSE)
 
-## Example
+## Setup
+
+Just copy directly into your theme directory along with
+[enter-view.js](https://github.com/russellgoldenberg/enter-view/blob/master/enter-view.min.js).  You can then load it in your templates by adding these lines to `functions.php`:
+
+```php
+wp_enqueue_script('wp-api');
+wp_enqueue_script('enter-view', get_template_directory_uri() . '/js/enter-view.min.js', array(), '2.0.0', true);
+wp_enqueue_script('infinite-scroll', get_template_directory_uri() . '/js/infinite-scroll.js', array('wp-api', 'enter-view'), '0.0.1', true);
+```
+
+## Usage
 
 You can use [any](https://github.com/wycats/handlebars.js) [templating](https://github.com/janl/mustache.js) [library](https://github.com/mde/ejs) for creating the post elements. In this example, we clone an existing post node and replace content and attributes with new post values.
 
