@@ -5,9 +5,9 @@
  * @typedef {object} Options
  * @property {string} container - Container element selector
  * @property {string} more - More button element selector
- * @property {object} data - Value of data object passed to wp.api.collection.Posts.fetch
+ * @property {object} data - Value of data object passed to `wp.api.collection.Posts.fetch`
  * @property {string} classPrefix - Class prefix used to deduplicate post elements
- * @property {string} moreDisplay - CSS display of more when it's visible
+ * @property {string} moreDisplay - CSS display of the more button when it's visible
  * @property {function} createElement - Function that creates new elements given post attributes
  */
 
