@@ -2,7 +2,8 @@
 
 Quick and easy infinite scrolling in WordPress. This library uses [enter-view.js](https://github.com/russellgoldenberg/enter-view/) to trigger loading on scroll and retireves posts through [WordPress' REST API](https://developer.wordpress.org/rest-api/) with the [Backbone.js client](https://developer.wordpress.org/rest-api/using-the-rest-api/backbone-javascript-client/).
 
-[Documentation](https://marksteve.com/wp-infinite-scroll)
+[Documentation](https://marksteve.com/wp-infinite-scroll) -
+[License](LICENSE)
 
 ## Example
 
