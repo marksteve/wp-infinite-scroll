@@ -6,8 +6,7 @@ Quick and easy infinite scrolling in WordPress. This library uses [enter-view.js
 
 ## Example
 
-You can use any templating library for creating the post elements. In this example, we
-clone an existing post node and replace content and attributes with new post values.
+You can use [any](https://github.com/wycats/handlebars.js) [templating](https://github.com/janl/mustache.js) [library](https://github.com/mde/ejs) for creating the post elements. In this example, we clone an existing post node and replace content and attributes with new post values.
 
 ```js
 document.addEventListener('DOMContentLoaded', function () {
