@@ -22,7 +22,7 @@ You can use [any](https://github.com/wycats/handlebars.js) [templating](https://
 
 ```js
 document.addEventListener('DOMContentLoaded', function () {
-  var template = document.querySelector('.posts > .post').cloneNode(true)
+  var template = document.querySelector('.posts > .post:first-child').cloneNode(true)
   function createElement (post) {
     var el = template.cloneNode(true)
     var featuredImage = post._embedded['wp:featuredmedia'][0].source_url
