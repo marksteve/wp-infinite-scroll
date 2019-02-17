@@ -38,14 +38,14 @@ document.addEventListener('DOMContentLoaded', function () {
     return el
   }
   infiniteScroll({
-    container: '.posts',
-    more: '.more',
-    moreDisplay: 'inline-block',
     data: {
       _embed: true,
       per_page: 10,
       filter: { order: 'DESC' }
     },
+    container: '.posts',
+    more: '.more',
+    moreDisplay: 'inline-block',
     offset: 0.25,
     createElement: createElement
   })

@@ -3,9 +3,10 @@
 /**
  * Options
  * @typedef {object} Options
+ * @property {string} collection - Backbone collection to use (defaults to Posts)
+ * @property {object} data - Value of data object passed to fetch
  * @property {string} container - Container element selector
  * @property {string} more - More button element selector
- * @property {object} data - Value of data object passed to `wp.api.collection.Posts.fetch`
  * @property {string} classPrefix - Class prefix used to deduplicate post elements
  * @property {string} moreDisplay - CSS display of the more button when it's visible
  * @property {function} createElement - Function that creates new elements given post attributes
@@ -20,6 +21,7 @@
  */
 window.infiniteScroll = function (options) {
   var defaults = {
+    collection: 'Posts',
     classPrefix: 'post-',
     moreDisplay: 'block'
   }
@@ -27,26 +29,26 @@ window.infiniteScroll = function (options) {
   wp.api.loadPromise.done(function () {
     var container = document.querySelector(options.container)
     var more = document.querySelector(options.more)
-    var posts = new wp.api.collections.Posts()
-    posts.fetch({ data: options.data })
-    posts.on('add', function (post) {
-      if (!document.querySelector('.' + options.classPrefix + post.id)) {
-        var attr = post.attributes
+    var collection = new wp.api.collections[options.collection]()
+    collection.fetch({ data: options.data })
+    collection.on('add', function (model) {
+      if (!document.querySelector('.' + options.classPrefix + model.id)) {
+        var attr = model.attributes
         var el = options.createElement(attr)
         el.classList.add(options.classPrefix + attr.id)
         container.appendChild(el)
       }
     })
-    posts.on('update', function () {
-      more.style.display = posts.hasMore() ? options.moreDisplay : 'none'
+    collection.on('update', function () {
+      more.style.display = collection.hasMore() ? options.moreDisplay : 'none'
     })
     more.addEventListener('click', function () {
-      posts.more()
+      collection.more()
     })
     enterView({
       selector: options.more,
       enter: function () {
-        posts.more()
+        collection.more()
       },
       offset: options.offset
     })
