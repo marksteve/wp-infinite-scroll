@@ -1,18 +1,6 @@
 /* global wp, enterView */
 
 /**
- * Options
- * @typedef {object} Options
- * @property {string} collection - Backbone collection to use (defaults to Posts)
- * @property {object} data - Value of data object passed to fetch
- * @property {string} container - Container element selector
- * @property {string} more - More button element selector
- * @property {string} classPrefix - Class prefix used to deduplicate post elements
- * @property {string} moreDisplay - CSS display of the more button when it's visible
- * @property {function} createElement - Function that creates new elements given post attributes
- */
-
-/**
  * Sets up infinite scrolling for WordPress
  * @global
  * @requires https://github.com/russellgoldenberg/enter-view
@@ -54,3 +42,14 @@ window.infiniteScroll = function (options) {
     })
   })
 }
+
+/**
+ * @typedef {object} Options
+ * @property {string} collection - Backbone collection to use (defaults to Posts)
+ * @property {object} data - Value of data object passed to fetch
+ * @property {string} container - Container element selector
+ * @property {string} more - More button element selector
+ * @property {string} classPrefix - Class prefix used to deduplicate post elements
+ * @property {string} moreDisplay - CSS display of the more button when it's visible
+ * @property {function} createElement - Function that creates new elements given post attributes
+ */
